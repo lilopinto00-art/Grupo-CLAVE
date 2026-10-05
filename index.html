@@ -173,13 +173,14 @@ dialog::backdrop{background:#10081a}
 <!-- ===== LUGAR DE TRABAJO ===== -->
 <section id="lugar"><div class="wrap">
   <h2>Lugar de trabajo</h2>
-  <div class="lugar" style="margin-top:22px;grid-template-columns:1fr">
+  <div class="lugar" style="margin-top:22px">
     <div class="card">
       <h3 style="margin-top:0;color:var(--tea2)">Facultad de Ciencias Astronómicas y Geofísicas</h3>
       <p>Universidad Nacional de La Plata, dentro del Paseo del Bosque, en La Plata, provincia de Buenos Aires.</p>
       <p>Paseo del Bosque s/n, B1900FWA, La Plata</p>
       <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Facultad+de+Ciencias+Astron%C3%B3micas+y+Geof%C3%ADsicas+La+Plata" target="_blank" rel="noopener">Abrir en Google Maps</a>
     </div>
+    <div class="mapbox" id="mapbox"><p style="position:absolute;inset:0;margin:0;display:grid;place-items:center;text-align:center;padding:20px;color:var(--mute)">Cargando mapa… si no aparece, usá el botón “Abrir en Google Maps”.</p></div>
   </div>
   <div class="gal" id="gal"></div>
 </div></section>
@@ -290,6 +291,11 @@ function ir(i){ni=(i+NOTICIAS.length)%NOTICIAS.length;[...tr.children].forEach((
 function auto(){clearInterval(tm);if(!matchMedia("(prefers-reduced-motion:reduce)").matches)tm=setInterval(()=>ir(ni+1),7000)}
 $("pv").onclick=()=>{ir(ni-1);auto()};$("nx").onclick=()=>{ir(ni+1);auto()};
 tr.onmouseenter=()=>clearInterval(tm);tr.onmouseleave=auto;ir(0);auto();
+// Mapa interactivo (OpenStreetMap). Se carga solo al llegar a la sección.
+// Para usar Google: Google Maps > Compartir > Insertar un mapa > copiá solo el src="..." y pegalo acá.
+const MAPA_SRC="https://www.openstreetmap.org/export/embed.html?bbox=-57.9400%2C-34.9110%2C-57.9250%2C-34.9030&layer=mapnik&marker=-34.9067%2C-57.9319";
+function cargarMapa(){if($("mapbox").querySelector("iframe"))return;const f=document.createElement("iframe");f.title="Mapa de la ubicación de la FCAG";f.src=MAPA_SRC;$("mapbox").prepend(f)}
+new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){cargarMapa();o.disconnect()}},{rootMargin:"300px"}).observe($("mapbox"));
 </script>
 </body>
 </html>
