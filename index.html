@@ -21,10 +21,10 @@ a{color:inherit}
 .blobs i:nth-child(3){width:34vmax;height:34vmax;background:var(--cri);left:20vw;bottom:-14vmax;animation-duration:25s;animation-delay:-4s}
 @keyframes flota{to{transform:translate(9vw,7vh) scale(1.18)}}
 /* NAV */
-nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;padding:8px 18px;padding-top:calc(8px + env(safe-area-inset-top,0px));background:rgba(22,8,36,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);flex-wrap:wrap}
-.mini{padding:0 4px;display:flex;align-items:center;margin-right:auto;text-decoration:none;color:var(--vio);font-weight:800;letter-spacing:.06em}
-.mini img{height:40px;width:auto;display:block}
-nav a.l{text-decoration:none;padding:6px 13px;border-radius:99px;font-weight:600;font-size:15px;color:var(--mute)}
+nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:2px;padding:8px 14px;padding-top:calc(8px + env(safe-area-inset-top,0px));background:rgba(22,8,36,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.mini{padding:0 4px;display:flex;align-items:center;text-decoration:none;color:var(--vio);font-weight:800;letter-spacing:.06em}
+.mini img{height:36px;width:auto;display:block}
+nav a.l{text-decoration:none;padding:6px 7px;border-radius:99px;font-weight:600;font-size:14px;color:var(--mute)}
 nav a.l:hover{background:rgba(255,255,255,.12);color:#fff}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 /* INICIO */
@@ -66,7 +66,7 @@ dialog::backdrop{background:rgba(10,4,18,.7);backdrop-filter:blur(3px)}
 .x:hover{background:rgba(0,0,0,.5)}
 /* LUGAR + CONTACTO */
 .lugar{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
-.lugar img{width:100%;height:100%;min-height:240px;object-fit:cover;border-radius:18px;border:1px solid var(--line)}
+
 form{display:grid;gap:12px}
 label{font-weight:600;font-size:15px}
 input,textarea{width:100%;margin-top:4px;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:#fff;font:inherit}
@@ -111,8 +111,8 @@ dialog::backdrop{background:#10081a}
 .mh h3{font-size:clamp(28px,5vw,46px)}.mh p{font-size:19px}
 .mb{max-width:780px;margin:0 auto;padding:28px 24px 70px;font-size:18px}.mb h4{font-size:19px;margin-top:24px}.mb li{margin-bottom:6px}
 .x{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:16px;right:auto;width:auto;height:42px;padding:0 20px;border-radius:99px;font-size:15px;font-weight:700;background:rgba(0,0,0,.4);border:1.5px solid rgba(255,255,255,.5);z-index:3}
-.lang{display:flex;gap:4px;margin-left:8px}.lang button{all:unset;cursor:pointer;padding:4px 10px;border-radius:99px;font-size:13px;font-weight:700;border:1.5px solid var(--line);color:var(--mute)}.lang button.on{background:var(--tea);border-color:var(--tea);color:#fff}
-.unlp{display:block;height:46px;width:auto}
+.lang{display:flex;gap:4px;margin-left:6px}.lang button{all:unset;cursor:pointer;padding:4px 10px;border-radius:99px;font-size:13px;font-weight:700;border:1.5px solid var(--line);color:var(--mute)}.lang button.on{background:var(--tea);border-color:var(--tea);color:#fff}
+.unlp{display:block;height:46px;width:auto}.unlp.nv{height:30px;margin:0 auto 0 8px;padding-left:10px;border-left:1px solid var(--line)}
 .chips{display:flex;gap:8px;margin:0 0 16px;flex-wrap:wrap}.chips button{all:unset;cursor:pointer;padding:5px 16px;border-radius:99px;border:1.5px solid var(--tea2);font-size:14.5px;font-weight:600}.chips button.on{background:var(--tea);border-color:var(--tea)}
 .pubs{list-style:none;margin:0;padding:0;display:grid;gap:12px}.mb .pubs{padding:0}
 .pub{display:flex;gap:14px;align-items:flex-start;background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
@@ -126,6 +126,7 @@ dialog::backdrop{background:#10081a}
 
 <nav aria-label="Secciones">
   <a class="mini" href="#inicio" id="navlogo" aria-label="CLAVE, inicio"></a>
+  <img class="unlp nv" alt="Universidad Nacional de La Plata">
   <a class="l" href="#novedades">Novedades</a><a class="l" href="#quienes">Quiénes somos</a><a class="l" href="#proyecto">Proyecto</a><a class="l" href="#integrantes">Integrantes</a><a class="l" href="#publicaciones">Publicaciones</a><a class="l" href="#lugar">Lugar de trabajo</a><a class="l" href="#contacto">Contacto</a>
   <span class="lang"><button data-l="es">ES</button><button data-l="en">EN</button></span>
 </nav>
@@ -192,7 +193,7 @@ dialog::backdrop{background:#10081a}
   <h2>Lugar de trabajo</h2>
   <div class="lugar" style="margin-top:22px">
     <div class="card">
-      <img class="unlp" alt="Universidad Nacional de La Plata" style="margin-bottom:14px"><h3 style="margin-top:0;color:var(--tea2)">Facultad de Ciencias Astronómicas y Geofísicas</h3>
+      <h3 style="margin-top:0;color:var(--tea2)">Facultad de Ciencias Astronómicas y Geofísicas</h3>
       <p>Universidad Nacional de La Plata, dentro del Paseo del Bosque, en La Plata, provincia de Buenos Aires.</p>
       <p>Paseo del Bosque s/n, B1900FWA, La Plata</p>
       <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Facultad+de+Ciencias+Astron%C3%B3micas+y+Geof%C3%ADsicas+La+Plata" target="_blank" rel="noopener">Abrir en Google Maps</a>
